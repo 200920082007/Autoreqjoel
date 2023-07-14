@@ -6,15 +6,14 @@ from pyrogram.types import Message
 from pyrogram.errors import FloodWait
 
 logging.basicConfig(level=logging.ERROR)
+       
 
-CHANNELS = [int(CHANNEL) for CHANNEL in environ.get("CHANNELS", None).split()]       
-AuthChat = filters.chat(CHANNELS) if CHANNELS else (filters.group | filters.channel)         
 User     = Client(name = "AcceptUser", api_id=environ.get("API_ID"), api_hash=environ.get("API_HASH"), session_string = environ.get("SESSION"))
 
-@User.on_message(filters.command(["run", "approve", "start"], [".", "/"]) & filters.private)                     
-async def approve(client: User, message: Message):
+
+@User.on_message(filters.command(["run", "approve", "start"], [".", "/"]) & (filters.group | filters.channel))
+async def approve(client: User, message: Message):e):
     Id = message.from_user.id
-    NJ = message.from_user.id
     await message.delete(True)
  
     try:
