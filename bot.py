@@ -12,7 +12,7 @@ User     = Client(name = "AcceptUser", api_id=environ.get("API_ID"), api_hash=en
 
 
 @User.on_message(filters.command(["run", "approve", "start"], [".", "/"]) & (filters.group | filters.channel))
-async def approve(client: User, message: Message):e):
+async def approve(client: User, message: Message):
     Id = message.from_user.id
     await message.delete(True)
  
