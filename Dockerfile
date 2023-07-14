@@ -1,5 +1,5 @@
 FROM python:3.10-alpine
-WORKDIR /TigerShroffv3
+WORKDIR /autoreqjoel
 COPY requirements.txt .
 RUN apk update && \
     apk upgrade && \
