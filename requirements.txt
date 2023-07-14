@@ -1,2 +1,2 @@
-pyrogram
+git+https://github.com/yasirarism/pyrofork
 tgcrypto
